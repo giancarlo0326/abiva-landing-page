@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abiva Mobile App | Empowering Education</title>
+    <title>Abiva Mobile App | Empowering Education Since 1936</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
@@ -17,8 +17,8 @@
     </nav>
 
     <header class="hero">
-        <div class="container">
-            <h1>The Future of Learning <br>is in Your Hands.</h1>
+        <div class="container hero-content">
+            <h1>The Future of Learning <br>now made Online</h1>
             <p>Introducing the Abiva Mobile App. A seamless digital experience designed for Teachers, Students, and Parents.</p>
             <div class="hero-btns">
                 <button class="btn-dark"><span></span> App Store</button>
@@ -27,27 +27,62 @@
         </div>
     </header>
 
-    <section class="features">
-        <div class="container grid">
-            <div class="card teacher">
-                <h3>For Teachers</h3>
-                <p>Manage lesson plans, automate grading, and engage students with interactive digital tools.</p>
+    <section class="info-section" style="padding: 80px 0; text-align: center; background: #fff;">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Why the Abiva App?</h2>
+            <p style="max-width: 700px; margin: 0 auto 50px; color: #666;">For over 80 years, Abiva has been a leader in Philippine education. Our new app brings that legacy into the digital age, providing a centralized hub for academic excellence.</p>
+            
+            <div class="grid">
+                <div class="info-card">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">📚</div>
+                    <h4>Digital Library</h4>
+                    <p>Carry all your Abiva textbooks in one lightweight device. No more heavy backpacks.</p>
+                </div>
+                <div class="info-card">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">⚡</div>
+                    <h4>Offline Access</h4>
+                    <p>Download your lessons and study even without an active internet connection.</p>
+                </div>
+                <div class="info-card">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">📊</div>
+                    <h4>Real-time Analytics</h4>
+                    <p>Instant feedback for students and detailed performance reports for parents and teachers.</p>
+                </div>
             </div>
-            <div class="card student">
-                <h3>For Students</h3>
-                <p>Access your textbooks and assignments anywhere. Track your progress and learn on the go.</p>
+        </div>
+    </section>
+
+    <section class="features" style="background: #f4f7f9;">
+        <div class="container">
+            <h2 style="text-align: center; padding-top: 60px; font-size: 2rem;">Tailored for Every User</h2>
+            <div class="grid">
+                <div class="card teacher">
+                    <h3>For Teachers</h3>
+                    <p>Manage lesson plans, automate grading, and engage students with interactive digital tools. Reduce administrative work by 40%.</p>
+                </div>
+                <div class="card student">
+                    <h3>For Students</h3>
+                    <p>Access your textbooks and assignments anywhere. Track your progress with gamified learning and interactive quizzes.</p>
+                </div>
+                <div class="card parent">
+                    <h3>For Parents</h3>
+                    <p>Stay informed about your child’s academic journey, attendance, and school updates with instant push notifications.</p>
+                </div>
             </div>
-            <div class="card parent">
-                <h3>For Parents</h3>
-                <p>Stay informed about your child’s academic journey and school updates in real-time.</p>
-            </div>
+        </div>
+    </section>
+
+    <section style="padding: 80px 0; background: #0056b3; color: white; text-align: center;">
+        <div class="container">
+            <p style="font-style: italic; font-size: 1.5rem; max-width: 800px; margin: 0 auto;">"The task of the teacher is not simply to impart information or to provide training in skills intended to deliver some economic benefit to society; the education of children and young people is a grand adventure in rhetoric, in the discovery of truth, and in the development of the person."</p>
+            <p style="margin-top: 20px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">— St. John Paul II</p>
         </div>
     </section>
 
     <section id="register" class="cta-section">
         <div class="container form-wrapper">
             <h2>Join the Launch List</h2>
-            <p>Be the first to experience the new standard in Philippine education.</p>
+            <p>Be the first to experience the new standard in Philippine education. Sign up today for a free 30-day premium trial upon launch.</p>
             <form id="lead-form">
                 <input type="text" placeholder="Full Name" required>
                 <input type="email" placeholder="Email Address" required>
@@ -57,13 +92,14 @@
                     <option value="student">Student</option>
                     <option value="parent">Parent</option>
                 </select>
-                <button type="submit" class="btn-submit">Notify Me</button>
+                <button type="submit" class="btn-submit">Notify Me & Reserve My Trial</button>
             </form>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2026 Abiva Publishing House Inc. | Est. 1936</p>
+        <p style="font-size: 0.7rem; margin-top: 10px; opacity: 0.6;">Proudly serving Philippine Schools for over 8 decades.</p>
     </footer>
 
 </body>
