@@ -76,7 +76,34 @@ body {
 .hero-btns {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 15px;
+    margin-top: 30px;
+}
+
+/* Controls the badges on desktop so they look clean and proportional */
+.hero-btns img {
+    width: 100%;
+    max-width: 200px; /* Standard aesthetic size for app store badges */
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.hero-btns img:hover {
+    transform: scale(1.05); /* Subtle hover pop effect */
+}
+
+/* Mobile responsive media query (Screens under 600px wide) */
+@media (max-width: 600px) {
+    .hero-btns {
+        flex-direction: column; /* Stacks the buttons vertically on phones */
+        gap: 12px;
+    }
+    
+    .hero-btns img {
+        max-width: 180px; /* Slightly smaller on mobile screens so they don't crowd the view */
+    }
 }
 
 .btn-dark {
