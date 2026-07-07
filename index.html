@@ -131,5 +131,82 @@
             hiddenElements.forEach(el => observer.observe(el));
         });
     </script>
+    <!-- Floating AI Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-trigger" id="chatBtn">Ask Abiva AI</button>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h4>Abiva AI</h4>
+                <button id="closeChat">×</button>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <div class="message system-msg">Hi! I'm your Abiva assistant. Ask me anything about our new mobile app!</div>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="chatInput" placeholder="Type a question...">
+                <button id="sendChatBtn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Existing Animation Script (Keep your observer logic, just append this below it) -->
+    <script>
+        // --- Chat Bot Toggling and Basic Automation Logic ---
+        const chatBtn = document.getElementById('chatBtn');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChat = document.getElementById('closeChat');
+        const chatInput = document.getElementById('chatInput');
+        const sendChatBtn = document.getElementById('sendChatBtn');
+        const chatBody = document.getElementById('chatBody');
+
+        // Open/Close toggle
+        chatBtn.addEventListener('click', () => chatWindow.classList.add('active'));
+        closeChat.addEventListener('click', () => chatWindow.classList.remove('active'));
+
+        // Handle Messaging
+        function handleSendMessage() {
+            const query = chatInput.value.trim();
+            if (!query) return;
+
+            // Render User Message
+            renderMessage(query, 'user-msg');
+            chatInput.value = '';
+
+            // Simulate AI responding after a brief realistic pause
+            setTimeout(() => {
+                const automatedResponse = getAIResponse(query);
+                renderMessage(automatedResponse, 'system-msg');
+            }, 800);
+        }
+
+        function renderMessage(text, className) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `message ${className}`;
+            msgDiv.innerText = text;
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight; // Auto-scrolls to the newest message
+        }
+
+        // Basic keyword match engine simulating the AI response
+        function getAIResponse(input) {
+            const lower = input.toLowerCase();
+            if (lower.includes('offline') || lower.includes('internet') || lower.includes('connection')) {
+                return "Yes! Students can download textbooks directly within the app to study completely offline anywhere.";
+            }
+            if (lower.includes('teacher') || lower.includes('grade') || lower.includes('lesson')) {
+                return "For teachers, the app includes lesson planning layouts, automated grading features, and automated tools to broadcast positive feedback.";
+            }
+            if (lower.includes('parent') || lower.includes('notification')) {
+                return "Parents receive instant real-time push notifications regarding student updates, achievements, and announcements.";
+            }
+            if (lower.includes('price') || lower.includes('cost') || lower.includes('buy')) {
+                return "Early access signup is free! Complete the form on our page, and our institutional team will send your school a customized pilot package layout.";
+            }
+            return "That's a great question! Fill out our 'Early Access' form on this page, and an Abiva representative will reach out with complete details.";
+        }
+
+        sendChatBtn.addEventListener('click', handleSendMessage);
+        chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSendMessage(); });
+    </script>
 </body>
 </html>

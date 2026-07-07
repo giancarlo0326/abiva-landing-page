@@ -230,3 +230,134 @@ footer {
         font-size: 2.2rem;
     }
 }
+
+/* ==========================================================================
+   FLOATING CHAT BOT WIDGET STYLES
+   ========================================================================== */
+.chat-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    font-family: 'Inter', sans-serif;
+}
+
+.chat-trigger {
+    background: #28a745; /* Clean green to stand out against the brand blue theme */
+    color: white;
+    border: none;
+    padding: 15px 22px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, background 0.2s;
+}
+
+.chat-trigger:hover {
+    transform: scale(1.05);
+    background: #218838;
+}
+
+.chat-window {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 320px;
+    height: 400px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chat-window.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.chat-header {
+    background: #0056b3;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h4 { font-size: 0.95rem; margin: 0; }
+.chat-header button { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+.chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    max-width: 80%;
+    line-height: 1.4;
+}
+
+.system-msg {
+    background: #e9ecef;
+    color: #333;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+}
+
+.user-msg {
+    background: #0056b3;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+}
+
+.chat-footer {
+    padding: 10px;
+    background: white;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 8px;
+}
+
+.chat-footer input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    margin-bottom: 0; /* Clears baseline spacing configuration */
+}
+
+.chat-footer button {
+    background: #0056b3;
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+/* Mobile tweak to ensure chat interface doesn't clip off small viewpoints */
+@media (max-width: 400px) {
+    .chat-window {
+        width: 280px;
+        right: -10px;
+    }
+}
