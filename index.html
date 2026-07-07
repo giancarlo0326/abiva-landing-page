@@ -17,7 +17,7 @@
     </nav>
 
     <header class="hero">
-        <div class="container hero-content">
+        <div class="container hero-content fade-in-up">
             <h1>The Future of Learning <br>now made Online</h1>
             <p>Introducing the Abiva Mobile App. A seamless digital experience designed for Teachers, Students, and Parents.</p>
             <div class="hero-btns">
@@ -29,21 +29,21 @@
 
     <section class="info-section" style="padding: 80px 0; text-align: center; background: #fff;">
         <div class="container">
-            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Why the Abiva App?</h2>
-            <p style="max-width: 700px; margin: 0 auto 50px; color: #666;">For over 90 years, Abiva has been a leader in Philippine education. Our new app brings that legacy into the digital age, providing a centralized hub for academic excellence.</p>
+            <h2 class="reveal-on-scroll" style="font-size: 2.5rem; margin-bottom: 20px;">Why the Abiva App?</h2>
+            <p class="reveal-on-scroll" style="max-width: 700px; margin: 0 auto 50px; color: #666;">For over 90 years, Abiva has been a leader in Philippine education. Our new app brings that legacy into the digital age, providing a centralized hub for academic excellence.</p>
             
             <div class="grid">
-                <div class="info-card">
+                <div class="info-card reveal-on-scroll">
                     <div style="font-size: 3rem; margin-bottom: 10px;">📚</div>
                     <h4>Digital Library</h4>
                     <p>Carry all your Abiva textbooks in one lightweight device. No more heavy backpacks.</p>
                 </div>
-                <div class="info-card">
+                <div class="info-card reveal-on-scroll">
                     <div style="font-size: 3rem; margin-bottom: 10px;">⚡</div>
                     <h4>Offline Access</h4>
                     <p>Download your lessons and study even without an active internet connection.</p>
                 </div>
-                <div class="info-card">
+                <div class="info-card reveal-on-scroll">
                     <div style="font-size: 3rem; margin-bottom: 10px;">📊</div>
                     <h4>Better Education</h4>
                     <p>Competitive learning for students and positive feedback for parents and teachers.</p>
@@ -54,17 +54,17 @@
 
     <section class="features" style="background: #f4f7f9;">
         <div class="container">
-            <h2 style="text-align: center; padding-top: 60px; font-size: 2rem;">Tailored for Every User</h2>
+            <h2 class="reveal-on-scroll" style="text-align: center; padding-top: 60px; font-size: 2rem;">Tailored for Every User</h2>
             <div class="grid">
-                <div class="card teacher">
+                <div class="card teacher reveal-on-scroll">
                     <h3>For Teachers</h3>
                     <p>Manage lesson plans and engage students with interactive digital tools.</p>
                 </div>
-                <div class="card student">
+                <div class="card student reveal-on-scroll">
                     <h3>For Students</h3>
                     <p>Access your textbooks and assignments anywhere. Track your progress with interactive learning and quizzes.</p>
                 </div>
-                <div class="card parent">
+                <div class="card parent reveal-on-scroll">
                     <h3>For Parents</h3>
                     <p>Guide your child’s academic journey and gain positive feedback from teachers.</p>
                 </div>
@@ -73,14 +73,14 @@
     </section>
 
     <section style="padding: 80px 0; background: #0056b3; color: white; text-align: center;">
-        <div class="container">
+        <div class="container reveal-on-scroll">
             <p style="font-style: italic; font-size: 1.5rem; max-width: 800px; margin: 0 auto;">"To touch the hearts of your students is the greatest miracle you can perform."</p>
             <p style="margin-top: 20px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">— St. John Baptist De La Salle</p>
         </div>
     </section>
 
     <section id="register" class="cta-section">
-        <div class="container form-wrapper">
+        <div class="container form-wrapper reveal-on-scroll">
             <h2>Join the Launch List</h2>
             <p>Be the first to experience the new standard in Philippine education.</p>
             <form id="lead-form">
@@ -102,5 +102,34 @@
         <p style="font-size: 0.7rem; margin-top: 10px; opacity: 0.6;">Proudly serving Philippine Schools for over 9 decades.</p>
     </footer>
 
+    <!-- JavaScript Animation Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Options configuration for the Intersection Observer API
+            const observerOptions = {
+                root: null, // evaluates viewport
+                rootMargin: '0px',
+                threshold: 0.15 // Triggers animation when 15% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        // Small staggered delay trick for elements that sit side-by-side inside grids
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 80); 
+                        
+                        // Stop observing once animated in to boost web performance
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Grab all targets marked for scrolling reveal
+            const hiddenElements = document.querySelectorAll('.reveal-on-scroll');
+            hiddenElements.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
